@@ -31,9 +31,11 @@
                 If array(i) > array(i + 1) Then
                     Swap(i, i + 1)
                     swapped = True
-                    steps.Add(New List(Of Integer)(array))
                 End If
             Next
+
+            ' Registrar el paso después del pase hacia adelante
+            steps.Add(New List(Of Integer)(array))
 
             If Not swapped Then
                 Exit While
@@ -47,9 +49,11 @@
                 If array(i) > array(i + 1) Then
                     Swap(i, i + 1)
                     swapped = True
-                    steps.Add(New List(Of Integer)(array))
                 End If
             Next
+
+            ' Registrar el paso después del pase hacia atrás
+            steps.Add(New List(Of Integer)(array))
 
             start += 1
         End While

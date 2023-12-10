@@ -30,15 +30,16 @@
 
         For Each value In array
             countingArray(value - min) += 1
-            steps.Add(New List(Of Integer)(countingArray))
         Next
 
         For i As Integer = min To max
             While countingArray(i - min) > 0
                 sortedArray.Add(i)
                 countingArray(i - min) -= 1
-                steps.Add(New List(Of Integer)(sortedArray))
             End While
+
+            ' Agregar una copia del estado actual de sortedArray en cada paso
+            steps.Add(New List(Of Integer)(sortedArray))
         Next
 
         Return steps
